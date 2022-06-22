@@ -195,10 +195,11 @@ const App: FC = () => {
         learner_id: learner_id
       }, authToken)
 
-     if (data.success){
-      settimetable(data.weeks)
-      setcurrenttimetable(data.weeks[0])
-     }
+      if (data.success){
+        setcurrenttimetable(data.weeks[0])
+        console.log(data.weeks)
+        settimetable(data.weeks)
+      }
 
      console.log(data)
    })()
@@ -221,11 +222,7 @@ const App: FC = () => {
         {!timetableshown ? <button onClick={handleshowtimetable}>
           Show Timetable
         </button> : <>
-          {currenttimetable.days.map(day => {
-          console.log(day)
-          return day.lessons.map(lesson => {
-            return <div>{lesson.teaching_group.subject}</div>
-          })
+          {currenttimetable.days.map(day => day)}
         </>}
       </>}
     </div>
