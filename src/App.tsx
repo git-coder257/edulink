@@ -223,9 +223,9 @@ const App: FC = () => {
         </button> : <>
           {currenttimetable.days.map(day => {
           console.log(day)
-          return <div>
-            {day.name}
-          </div>})}
+          return day.lessons.map(lesson => {
+            return <div>{lesson.teaching_group.subject}</div>
+          })
         </>}
       </>}
     </div>
